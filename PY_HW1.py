@@ -28,5 +28,6 @@ def step1():
         return step2_umbrella()
     return step2_no_umbrella()
 
+
 if __name__ == '__main__':
     step1()
