@@ -7,6 +7,7 @@ class CountVectorizer:
         # Создаём объект класса
         self.bag_of_words = set()
         self.count_matrix = []
+        self.has_contents = False
 
     def fit_transform(self, corpus: list) -> list:
         # Разбираем корпус на детальки
@@ -31,10 +32,12 @@ class CountVectorizer:
                         cnt += 1
                 this_text.append(cnt)
             self.count_matrix.append(this_text)
+        self.has_contents = True
         return self.count_matrix
 
     def get_feature_names(self) -> list:
-        return self.ordered_list
+        if self.has_contents:
+            return self.ordered_list
 
 
 def demo():
